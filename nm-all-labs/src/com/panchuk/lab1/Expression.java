@@ -54,7 +54,7 @@ public class Expression {
         double fPartDerX3 = (12 * this.x3) + (6 * this.x1) - (5 * this.x2 * exp(this.x2 * this.x3));
         System.out.println("Partial derivatives of:\n\tX1) 14 * x1 + 6 * x3 = " + fPartDerX1 +
                 "\n\tX2) 10 * x2 - 5 * x3 * exp(x2 * x3) - 4 = " + fPartDerX2 +
-                "\n\tX3) 12 * x3 + 6 * x1 - 5 * x2 * exp(x2 * x3 = " + fPartDerX3 + "\n");
+                "\n\tX3) 12 * x3 + 6 * x1 - 5 * x2 * exp(x2 * x3) = " + fPartDerX3 + "\n");
 
         if (variant == 1) {
 
@@ -100,7 +100,7 @@ public class Expression {
      * calculate relative error of func
      */
     private double calculateRelativeError() {
-        return absoluteError / funcRes;
+        return absoluteError / abs(funcRes);
     }
 
     /**

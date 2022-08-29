@@ -7,7 +7,18 @@ import static java.lang.Math.pow;
 public class Calculations {
     private static final int NUMBER_OF_VARIANT = 18;
 
-    public static Expression inputData(int check) {
+    /**
+     * IO information
+     */
+    public static Expression inputData() {
+        System.out.print(new StringBuilder().append("\nChoose a program option: \n\t")
+                .append("print '1' - exact numbers are given\n\t")
+                .append("print '2' - an error is given\n\n")
+                .append("Your choice: "));
+
+        Scanner scanner = new Scanner(System.in);
+        int check = scanner.nextInt();
+
         Scanner scan = new Scanner(System.in);
         System.out.print("x1 = ");
         double x1 = scan.nextDouble();
@@ -19,9 +30,9 @@ public class Calculations {
         return new Expression(x1, x2, x3, check);
     }
 
-
     /**
      * defines relative error of argument
+     *
      * @return relative error of argument
      */
     public static double relErrX(double x, int precision) {
@@ -33,6 +44,7 @@ public class Calculations {
 
     /**
      * defines precision
+     *
      * @return n - amount of exact digits
      */
     public static int getPrecision(double x, int variant) {
@@ -59,13 +71,12 @@ public class Calculations {
         if (x < 10 && x >= 1) return (int) x % 10;
         else if (x < 1) {
             for (int i = 0; i < 32; i++) {
-                if (x > 1) return (int)x;
+                if (x > 1) return (int) x;
                 x *= 10;
             }
-        }
-        else {
+        } else {
             for (int i = 0; i < 32; i++) {
-                if (x < 10) return (int)x;
+                if (x < 10) return (int) x;
                 x /= 10;
             }
         }
@@ -74,6 +85,7 @@ public class Calculations {
 
     /**
      * defines position of the first significant digit
+     *
      * @return m - power of the first exact number
      */
     public static int calculatePositionDigit(double x) {
